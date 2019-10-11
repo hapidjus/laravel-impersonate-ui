@@ -31,6 +31,16 @@
 			"Hapidjus\\ImpersonateUI\\": "src/"
 		}
 	},
+	"extra": {
+	    "laravel": {
+	        "providers": [
+	            "hapidjus\\laravel-impersonate-ui\\ServiceProvider"
+	        ],
+	        "aliases": {
+	            "Debugbar": "hapidjus\\laravel-impersonate-ui\\Facade"
+	        }
+	    }
+	},
 	"minimum-stability": "dev",
 	"prefer-stable": true
 }
