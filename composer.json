@@ -34,11 +34,8 @@
 	"extra": {
 	    "laravel": {
 	        "providers": [
-	            "hapidjus\\laravel-impersonate-ui\\ServiceProvider"
-	        ],
-	        "aliases": {
-	            "Debugbar": "hapidjus\\laravel-impersonate-ui\\Facade"
-	        }
+	            "hapidjus\\laravel-impersonate-ui\\ImpersonateUiServiceProvider"
+	        ]
 	    }
 	},
 	"minimum-stability": "dev",
