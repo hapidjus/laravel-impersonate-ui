@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Hapidjus\ImpersonateUI;
 
 use Illuminate\Support\ServiceProvider;
 use Riak\Connection;

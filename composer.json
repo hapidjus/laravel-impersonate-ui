@@ -34,7 +34,7 @@
 	"extra": {
 	    "laravel": {
 	        "providers": [
-	            "hapidjus\\laravel-impersonate-ui\\ImpersonateUiServiceProvider"
+	            "Hapidjus\\ImpersonateUI\\ImpersonateUiServiceProvider"
 	        ]
 	    }
 	},
