@@ -15,7 +15,7 @@ Laravel Impersonate UI is a Laravel Package that adds an easy to use UI for sele
 composer require hapidjus/laravel-impersonate-ui
 ```
 
-Add the trait `Lab404\Impersonate\Models\Impersonate` to your __User__ model.
+- Add the trait `Lab404\Impersonate\Models\Impersonate` to your __User__ model.
 
 Have fun impersonating.
 
