@@ -23,7 +23,7 @@
 		<div class="d-flex justify-content-between mt-3">
 			<input type="submit" value="Impersonate" class="btn btn-primary">
 			@impersonating
-				<a href="{{ route('impersonate.leave') }}" class="btn btn-warning">Leave</a>
+				<a href="{{ route('impersonate-ui.leave') }}" class="btn btn-warning">Leave</a>
 			@endImpersonating
 		</div>
 			
