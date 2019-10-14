@@ -39,7 +39,7 @@ class ImpersonateUiController extends Controller
 
 		if($this->manager->isImpersonating())
 		{
-			$manager->leave();
+			$this->manager->leave();
 		}    	
 
     	return redirect()->back();
