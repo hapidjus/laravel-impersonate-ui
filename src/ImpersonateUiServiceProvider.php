@@ -20,7 +20,7 @@ class ImpersonateUiServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/laravel-impersonate-ui.php' => config_path('laravel-impersonate-ui.php'),
+            __DIR__.'/../config/laravel-impersonate-ui.php' => config_path('laravel-impersonate-ui.php')
         ]);
     }
 
