@@ -22,7 +22,7 @@ return [
 	'show_button' => true,
 
 	/**
-	* Globaly include laravel-impersonate-ui. 
+	* Globally include laravel-impersonate-ui. 
 	* 
 	* Or use this view: @include('impersonate-ui::impersonate-ui')
 	* 
@@ -30,7 +30,7 @@ return [
 	'global_include' => false,
 
 	/**
-	* The URI to redirect after taking an impersonation.
+	* The URI/Route to redirect after taking an impersonation.
 	*
 	* Use 'back' to redirect to the previous page
 	*
@@ -38,7 +38,7 @@ return [
 	'take_redirect_to' => 'back',
 
 	/**
-	* The URI to redirect after leaving an impersonation.
+	* The URI/Route to redirect after leaving an impersonation.
 	*
 	* Use 'back' to redirect to the previous page
 	*
