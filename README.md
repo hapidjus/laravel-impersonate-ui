@@ -9,23 +9,25 @@ Laravel Impersonate UI is a Laravel Package that adds an easy to use UI for sele
 - Laravel >= 6.1
 - PHP >= 7.1
 
+
 ### Installation
 - Require laravel-impersonate-ui with Composer
-```
+```php
 composer require hapidjus/laravel-impersonate-ui
 ```
 
 - Add the trait `Lab404\Impersonate\Models\Impersonate` to your __User__ model.
 
+
 ### Configuration
 
 You can publish the config-file with:
-```
+```php
 php artisan vendor:publish --provider="Hapidjus\ImpersonateUI\ImpersonateUiServiceProvider"
 ```
 
 This is the contents of the config file:
-```
+```php
 return [
 
 	/**
