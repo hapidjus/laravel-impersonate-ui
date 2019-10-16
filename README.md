@@ -53,7 +53,7 @@ return [
 	* Or use this view: @include('impersonate-ui::impersonate-ui')
 	* 
 	*/
-	'global_include' => false,
+	'global_include' => true,
 
 	/**
 	* The URI/Route to redirect after taking an impersonation.
