@@ -28,31 +28,60 @@ class ImpersonateUi{
 
 	}
 
-	public function getTakeRedirectTo(){
+	public function makeTakeRedirectTo(){
 
-		$takeRedirect = $this->manager->getTakeRedirectTo();
-        
-        if ($takeRedirect !== 'back') {
+        if ($this->getTakeRedirectTo() !== 'back') {
         
             return redirect()->to($takeRedirect);
         
         }
         
         return back();
+
+	}
+	public function getTakeRedirectTo(){
+
+		try {
+
+			$uri = route(config('laravel-impersonate-ui.take_redirect_to'));
+
+		} catch (\InvalidArgumentException $e) {
+
+			$uri = config('laravel-impersonate-ui.take_redirect_to');
+
+		}
+
+		return $uri;
+
+	}
+
+	public function makeLeaveRedirectTo(){
+
+		$takeRedirect = $this->getLeaveRedirectTo();
+
+		if ($takeRedirect !== 'back') {
+
+			return redirect()->to($takeRedirect);
+
+		}
+
+		return back();
 
 	}
 
 	public function getLeaveRedirectTo(){
 
-		$takeRedirect = $this->manager->getLeaveRedirectTo();
-        
-        if ($takeRedirect !== 'back') {
-        
-            return redirect()->to($takeRedirect);
-        
-        }
-        
-        return back();
+		try {
 
+			$uri = route(config('laravel-impersonate-ui.leave_redirect_to'));
+
+		} catch (\InvalidArgumentException $e) {
+
+			$uri = config('laravel-impersonate-ui.leave_redirect_to');
+
+		}
+
+		return $uri;
 	}
+
 }

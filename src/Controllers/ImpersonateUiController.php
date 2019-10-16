@@ -41,7 +41,7 @@ class ImpersonateUiController extends Controller
 
         }
 
-        return $this->uiManager->getTakeRedirectTo();
+        return $this->uiManager->makeTakeRedirectTo();
 
     }
 
@@ -55,7 +55,7 @@ class ImpersonateUiController extends Controller
 
 		}    	
 
-        return $this->uiManager->getLeaveRedirectTo();
+        return $this->uiManager->makeLeaveRedirectTo();
 
     }
 
