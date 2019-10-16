@@ -12,25 +12,36 @@ class ImpersonateUiController extends Controller
 {
 
 	private $manager;
+    private $uiManager;
 
 	public function __construct(){
 
 		$this->manager = app('impersonate');
+        $this->uiManager = app('impersonateUi');
 
 	}
 
     public function take(Request $request)
     {
 
+        if (!$request->user()->canImpersonate()) {
+            abort(403);
+        }
     	
     	if($this->manager->isImpersonating())
     	{
     		$this->manager->leave();
     	}
 
-    	$this->manager->take(Auth::user(), $this->manager->findUserById($request->impersonate_id));
+        $userToImpersonate = $this->manager->findUserById($request->impersonate_id);
 
-    	return redirect()->back();
+        if ($userToImpersonate->canBeImpersonated()) {
+
+            $this->manager->take($request->user(), $userToImpersonate);
+
+        }
+
+        return $this->uiManager->getTakeRedirectTo();
 
     }
 
@@ -39,10 +50,12 @@ class ImpersonateUiController extends Controller
 
 		if($this->manager->isImpersonating())
 		{
+
 			$this->manager->leave();
+
 		}    	
 
-    	return redirect()->back();
+        return $this->uiManager->getLeaveRedirectTo();
 
     }
 
