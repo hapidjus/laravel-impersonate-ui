@@ -30,6 +30,8 @@ class ImpersonateUi{
 
 	public function makeTakeRedirectTo(){
 
+		$takeRedirect = $this->getTakeRedirectTo(); 
+
         if ($this->getTakeRedirectTo() !== 'back') {
         
             return redirect()->to($takeRedirect);
@@ -57,11 +59,11 @@ class ImpersonateUi{
 
 	public function makeLeaveRedirectTo(){
 
-		$takeRedirect = $this->getLeaveRedirectTo();
+		$leaveRedirect = $this->getLeaveRedirectTo();
 
-		if ($takeRedirect !== 'back') {
+		if ($leaveRedirect !== 'back') {
 
-			return redirect()->to($takeRedirect);
+			return redirect()->to($leaveRedirect);
 
 		}
 
