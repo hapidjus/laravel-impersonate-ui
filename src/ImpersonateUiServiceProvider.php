@@ -46,14 +46,14 @@ class ImpersonateUiServiceProvider extends ServiceProvider
 
         app('Illuminate\Contracts\Http\Kernel')->pushMiddleware(ImpersonateUiMiddleware::class);
         
-        $this->registerViews();
+        $this->registerViewComposer();
 
         $this->registerRoutes();
 
 
     }
 
-    protected function registerViews()
+    protected function registerViewComposer()
     {
         View::composer('impersonate-ui::impersonate-ui', function ($view) {
         
