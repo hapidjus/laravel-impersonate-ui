@@ -19,8 +19,11 @@ class ImpersonateUiServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'impersonate-ui');
+
         $this->publishes([
-            __DIR__.'/../config/laravel-impersonate-ui.php' => config_path('laravel-impersonate-ui.php')
+            __DIR__.'/../config/laravel-impersonate-ui.php' => config_path('laravel-impersonate-ui.php'),
+            __DIR__.'/../resources/views' =>  resource_path('views/vendor/impersonate-ui'),
         ]);
     }
 
@@ -43,18 +46,15 @@ class ImpersonateUiServiceProvider extends ServiceProvider
 
         app('Illuminate\Contracts\Http\Kernel')->pushMiddleware(ImpersonateUiMiddleware::class);
         
-        $this->registerViews();
+        $this->registerViewComposer();
 
         $this->registerRoutes();
 
 
     }
 
-    protected function registerViews()
+    protected function registerViewComposer()
     {
-
-    	$this->loadViewsFrom(__DIR__ . '/../resources/views', 'impersonate-ui');
-        
         View::composer('impersonate-ui::impersonate-ui', function ($view) {
         
             $view->with([
