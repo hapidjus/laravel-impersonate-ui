@@ -43,14 +43,14 @@ return [
 	* 
 	* Trying to save some clicks?
 	* Then this is the option for you! Select a user and BOOM -  
-	* form submited - user impersonated. No need to click any
+	* form submitted - user impersonated. No need to click any
 	* pesky buttons.
 	* 
 	*/
 	'show_button' => true,
 
 	/**
-	* Globaly include laravel-impersonate-ui. 
+	* Globally include laravel-impersonate-ui. 
 	* 
 	* Or use this view: @include('impersonate-ui::impersonate-ui')
 	* 
