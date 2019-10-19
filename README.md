@@ -26,6 +26,8 @@ You can publish the config-file with:
 php artisan vendor:publish --provider="Hapidjus\ImpersonateUI\ImpersonateUiServiceProvider"
 ```
 
+append `--tag=config` or `--tag=view` to only publish config or blade file.
+
 This is the contents of the config file:
 ```php
 return [
