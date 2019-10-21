@@ -21,12 +21,13 @@ composer require hapidjus/laravel-impersonate-ui
 
 ### Configuration
 
-You can publish the config-file with:
+To publish the config and blade files use:
 ```php
 php artisan vendor:publish --provider="Hapidjus\ImpersonateUI\ImpersonateUiServiceProvider"
 ```
 
-append `--tag=config` or `--tag=view` to only publish config or blade file.
+Append `--tag=config` or `--tag=view` to only publish config or blade files.
+
 
 This is the contents of the config file:
 ```php
