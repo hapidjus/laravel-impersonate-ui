@@ -23,8 +23,11 @@ class ImpersonateUiServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/laravel-impersonate-ui.php' => config_path('laravel-impersonate-ui.php'),
+	], 'config');
+
+    	$this->publishes([
             __DIR__.'/../resources/views' =>  resource_path('views/vendor/impersonate-ui'),
-        ]);
+        ], 'view');
     }
 
     /**
