@@ -16,8 +16,52 @@ Laravel Impersonate UI is a Laravel Package that adds an easy to use UI for sele
 composer require hapidjus/laravel-impersonate-ui
 ```
 
-- Add the trait `Lab404\Impersonate\Models\Impersonate` to your __User__ model.
+- Add the Trait `Lab404\Impersonate\Models\Impersonate` to your __User__ model.
 
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Lab404\Impersonate\Models\Impersonate;
+
+class User extends Authenticatable
+{
+    use Notifiable,
+        Impersonate;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+}
+
+```
 
 ### Configuration
 
@@ -79,6 +123,13 @@ return [
 ];
 ```
 
+### Partials view:
+
+You can include impersonate view in the views by adding the code below to blade file where you want it will be displayed.
+
+```php
+@include('impersonate-ui::impersonate-ui')
+```
 
 Have fun impersonating.
 
