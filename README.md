@@ -120,6 +120,22 @@ return [
 	*/
 	'leave_redirect_to' => 'back',
 
+	/**
+	* Only use these users
+	*
+	* Array of user IDs or null for all
+	*
+	*/
+	'users_only' => null,
+
+	/**
+	* Exlude these users
+	*
+	* Array of user IDs or null
+	*
+	*/
+	'users_exclude' => null,
+
 ];
 ```
 
