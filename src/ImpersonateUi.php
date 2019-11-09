@@ -86,4 +86,18 @@ class ImpersonateUi{
 		return $uri;
 	}
 
+	static public function getUsers(){
+
+		if(is_array(config('laravel-impersonate-ui.users_only'))){
+			return User::whereIn('id', config('laravel-impersonate-ui.users_only'))->orderBy('name')->get();
+		}
+
+		if(is_array(config('laravel-impersonate-ui.users_exclude'))){
+			return User::whereNotIn('id', config('laravel-impersonate-ui.users_exclude'))->orderBy('name')->get();
+		}
+
+		return User::orderBy('name')->get();
+
+	}
+
 }

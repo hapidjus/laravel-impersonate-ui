@@ -2,11 +2,12 @@
 
 namespace Hapidjus\ImpersonateUI;
 
+use App\User;
+use Illuminate\Support\Facades\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
+use Hapidjus\ImpersonateUI\ImpersonateUi;
 use Hapidjus\ImpersonateUI\Middlewares\ImpersonateUiMiddleware;
-use Illuminate\Support\Facades\View;
-use App\User;
 
 
 
@@ -66,7 +67,7 @@ class ImpersonateUiServiceProvider extends ServiceProvider
         
             $view->with([
                 'impersonator'  => app('impersonate')->getImpersonator(),
-                'users'         => User::orderBy('name')->get()
+                'users'         => ImpersonateUi::getUsers()
             ]);
 
         });
