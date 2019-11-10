@@ -42,7 +42,7 @@
 
 <style type="text/css">
 	#impersonate-ui{
-		position: absolute;
+		position: fixed;
 		z-index: 99;
 		bottom: 10px;
 		right: 10px;
