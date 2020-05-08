@@ -31,6 +31,12 @@ class ImpersonateUiController extends Controller
     	if($this->manager->isImpersonating())
     	{
     		$this->manager->leave();
+
+
+    	if(! $this->uiManager->userAllowedToImpersonate()){
+            abort(403);
+        }
+
     	}
 
         $userToImpersonate = $this->manager->findUserById($request->impersonate_id);
