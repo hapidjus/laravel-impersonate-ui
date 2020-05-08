@@ -54,7 +54,7 @@ return [
 	'leave_redirect_to' => 'back',
 
 	/**
-	* Only use these users
+	* Only allow these users to be impersonated
 	*
 	* Array of user IDs or null for all
 	*
@@ -62,9 +62,9 @@ return [
 	'users_only' => null,
 
 	/**
-	* Exlude these users
+	* Exlude these users from beeing impersonated
 	*
-	* Array of user IDs or null
+	* Array of user IDs or null for none
 	*
 	*/
 	'users_exclude' => null,
