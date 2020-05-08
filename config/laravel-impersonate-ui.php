@@ -11,6 +11,14 @@ return [
 	'enabled' => env('APP_DEBUG',false),
 
 	/**
+	* Users allowed to impersonate
+	* 
+	* Array of user emails, i.e ['admin@example.com'] or null for all
+	* 
+	*/
+	'users_allowed_to_impersonate' => ['admin@example.com'],
+
+	/**
 	* Position of icon.
 	* 
 	* Supported: "bottom-right", "bottom-left", "top-left", "top-right"
@@ -33,7 +41,9 @@ return [
 	* Globally include laravel-impersonate-ui. 
 	* 
 	* Or use this view: @include('impersonate-ui::impersonate-ui')
-	* 
+	* Note: If you include the view yourself you need to add
+	* a check yourself to test if the current users is allowed 
+	* to impersonate
 	*/
 	'global_include' => true,
 
