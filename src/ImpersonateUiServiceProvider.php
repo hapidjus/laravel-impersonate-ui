@@ -45,7 +45,10 @@ class ImpersonateUiServiceProvider extends ServiceProvider
 
         $this->mergeConfig();
 
-        
+        if(! $this->isEnabled()){
+            return;
+        }
+
         $this->app->singleton(ImpersonateUi::class, function ($app) {
             return new ImpersonateUi($app);
         });
@@ -72,6 +75,11 @@ class ImpersonateUiServiceProvider extends ServiceProvider
 
         });
 
+    }
+
+    protected function isEnabled()
+    {
+        return config('laravel-impersonate-ui.enabled', false);
     }
 
     protected function registerRoutes()
