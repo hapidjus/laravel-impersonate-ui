@@ -16,6 +16,24 @@ class ImpersonateUi{
 	    $this->manager = $this->app['impersonate'];
 	}
 
+	public function userAllowedToImpersonate(){
+
+		if(! auth()->user()){
+			return false;
+		}
+
+		if($this->manager->isImpersonating()){
+			return true;
+		}
+
+		if(! is_array(config('laravel-impersonate-ui.users_allowed_to_impersonate'))){
+			return true;
+		}
+
+		return in_array(auth()->user()->email, config('laravel-impersonate-ui.users_allowed_to_impersonate'));
+
+	}
+
 	public function getImpersonator(){
 
 	    if($this->manager->getImpersonatorId() !== null)
