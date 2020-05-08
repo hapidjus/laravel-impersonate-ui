@@ -29,6 +29,12 @@ class ImpersonateUiMiddleware
 			return $response;
 		}
 
+        $this->uiManager = app('impersonateUi');
+
+		if(! $this->uiManager->userAllowedToImpersonate()){
+			return $response;
+		}
+
 		$content = $response->getContent();
 
 		if (($head = mb_strpos($content, '</body>')) !== false) {
