@@ -3,6 +3,14 @@
 return [
 
 	/**
+	* Enable Laravel Impersonate UI
+	* 
+	* Laravel Impersonate UI is enabled by default when in debug 
+	* 
+	*/
+	'enabled' => env('APP_DEBUG',false),
+
+	/**
 	* Position of icon.
 	* 
 	* Supported: "bottom-right", "bottom-left", "top-left", "top-right"
