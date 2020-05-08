@@ -24,7 +24,7 @@ class ImpersonateUiController extends Controller
     public function take(Request $request)
     {
 
-        if (!$request->user()->canImpersonate()) {
+        if (! $request->user()->canImpersonate()) {
             abort(403);
         }
     	
