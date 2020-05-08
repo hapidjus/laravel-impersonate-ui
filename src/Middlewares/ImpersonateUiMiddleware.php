@@ -21,23 +21,23 @@ class ImpersonateUiMiddleware
 	
 		$response = $next($request);
 
-		if(config('laravel-impersonate-ui.global_include')):
+		if(! config('laravel-impersonate-ui.global_include')){
+			return $response;
+		}
 
-			if (Str::contains($response->headers->get('Content-Type'), 'text/html')) {
+		if (! Str::contains($response->headers->get('Content-Type'), 'text/html')) {
+			return $response;
+		}
 
-				$content = $response->getContent();
+		$content = $response->getContent();
 
-				if (($head = mb_strpos($content, '</body>')) !== false) {
+		if (($head = mb_strpos($content, '</body>')) !== false) {
 
-					$response->setContent(mb_substr($content, 0, $head) .
-						view('impersonate-ui::impersonate-ui') .
-						mb_substr($content, $head));
+			$response->setContent(mb_substr($content, 0, $head) .
+				view('impersonate-ui::impersonate-ui') .
+				mb_substr($content, $head));
 
-				}
-
-			}
-		
-		endif;
+		}
 
 		return $response;
 
