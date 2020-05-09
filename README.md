@@ -33,32 +33,6 @@ class User extends Authenticatable
     use Notifiable,
         Impersonate;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
 }
 
 ```
@@ -76,6 +50,22 @@ Append `--tag=config` or `--tag=view` to only publish config or blade files.
 This is the contents of the config file:
 ```php
 return [
+
+	/**
+	* Enable Laravel Impersonate UI
+	* 
+	* Laravel Impersonate UI is enabled by default when in debug 
+	* 
+	*/
+	'enabled' => env('APP_DEBUG',false),
+
+	/**
+	* Users allowed to impersonate
+	* 
+	* Array of user emails, i.e ['admin@example.com'] or null for all
+	* 
+	*/
+	'users_allowed_to_impersonate' => ['admin@example.com'],
 
 	/**
 	* Position of icon.
@@ -100,7 +90,9 @@ return [
 	* Globally include laravel-impersonate-ui. 
 	* 
 	* Or use this view: @include('impersonate-ui::impersonate-ui')
-	* 
+	* Note: If you choose to include the partials view you need to add
+	* a check to test if the current users is allowed 
+	* to impersonate
 	*/
 	'global_include' => true,
 
@@ -121,7 +113,7 @@ return [
 	'leave_redirect_to' => 'back',
 
 	/**
-	* Only use these users
+	* Only allow these users to be impersonated
 	*
 	* Array of user IDs or null for all
 	*
@@ -129,9 +121,9 @@ return [
 	'users_only' => null,
 
 	/**
-	* Exlude these users
+	* Exlude these users from beeing impersonated
 	*
-	* Array of user IDs or null
+	* Array of user IDs or null for none
 	*
 	*/
 	'users_exclude' => null,
@@ -141,7 +133,8 @@ return [
 
 ### Partials view:
 
-You can include impersonate view in the views by adding the code below to blade file where you want it will be displayed.
+You can use the partials view to include the Impersonate UI on any pages you want.
+Note: If you choose to include the partials view you need to add a check to test if the current users is allowed to impersonate
 
 ```php
 @include('impersonate-ui::impersonate-ui')
