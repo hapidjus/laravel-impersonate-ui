@@ -5,7 +5,7 @@ namespace Hapidjus\ImpersonateUI\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Auth\AuthManager;
-use App\User;
+
 use Auth;
 
 class ImpersonateUiController extends Controller

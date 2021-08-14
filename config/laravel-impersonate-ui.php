@@ -11,6 +11,15 @@ return [
 	'enabled' => env('APP_DEBUG',false),
 
 	/**
+	* User Model Location.
+	* 
+	* default to : '\App\User'
+	* you can specified other location like '\App\Models\User'
+	* 
+	*/
+	'user_model' => '\App\User',
+
+	/**
 	* Users allowed to impersonate
 	* 
 	* Array of user emails, i.e ['admin@example.com'] or null for all

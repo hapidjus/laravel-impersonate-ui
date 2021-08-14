@@ -4,7 +4,7 @@ namespace Hapidjus\ImpersonateUI\Middlewares;
 
 use Closure;
 use Illuminate\Support\Str;
-use App\User;
+
 
 
 class ImpersonateUiMiddleware
@@ -55,7 +55,7 @@ class ImpersonateUiMiddleware
 
 		if($manager->getImpersonatorId() !== null)
 		{
-			return User::findOrFail($manager->getImpersonatorId());
+			return config('laravel-impersonate-ui.user_model')::findOrFail($manager->getImpersonatorId());
 
 		}
 
