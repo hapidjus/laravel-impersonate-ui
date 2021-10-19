@@ -11,6 +11,15 @@ return [
 	'enabled' => env('APP_DEBUG',false),
 
 	/**
+	* User Model Class.
+	* 
+	* Defaults to : '\App\Models\User' in accordance with Laravel 8
+	* convention
+	*
+	*/
+	'user_model' => '\App\Models\User',
+
+	/**
 	* Users allowed to impersonate
 	* 
 	* Array of user emails, i.e ['admin@example.com'] or null for all

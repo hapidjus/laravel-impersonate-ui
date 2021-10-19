@@ -3,7 +3,7 @@
 namespace Hapidjus\ImpersonateUI;
 
 use Illuminate\Foundation\Application;
-use App\User;
+
 
 class ImpersonateUi{
 
@@ -38,7 +38,7 @@ class ImpersonateUi{
 
 	    if($this->manager->getImpersonatorId() !== null)
 	    {
-	        return User::findOrFail($this->manager->getImpersonatorId());
+	        return config('laravel-impersonate-ui.user_model')::findOrFail($this->manager->getImpersonatorId());
 
 	    }
 
@@ -107,14 +107,14 @@ class ImpersonateUi{
 	static public function getUsers(){
 
 		if(is_array(config('laravel-impersonate-ui.users_only'))){
-			return User::whereIn('id', config('laravel-impersonate-ui.users_only'))->orderBy('name')->get();
+			return config('laravel-impersonate-ui.user_model')::whereIn('id', config('laravel-impersonate-ui.users_only'))->orderBy('name')->get();
 		}
 
 		if(is_array(config('laravel-impersonate-ui.users_exclude'))){
-			return User::whereNotIn('id', config('laravel-impersonate-ui.users_exclude'))->orderBy('name')->get();
+			return config('laravel-impersonate-ui.user_model')::whereNotIn('id', config('laravel-impersonate-ui.users_exclude'))->orderBy('name')->get();
 		}
 
-		return User::orderBy('name')->get();
+		return config('laravel-impersonate-ui.user_model')::orderBy('name')->get();
 
 	}
 
