@@ -11,13 +11,13 @@ return [
 	'enabled' => env('APP_DEBUG',false),
 
 	/**
-	* User Model Location.
+	* User Model Class.
 	* 
-	* default to : '\App\User'
-	* you can specified other location like '\App\Models\User'
-	* 
+	* Defaults to : '\App\Models\User' in accordance with Laravel 8
+	* convention
+	*
 	*/
-	'user_model' => '\App\User',
+	'user_model' => '\App\Models\User',
 
 	/**
 	* Users allowed to impersonate
