@@ -10,6 +10,13 @@ use Illuminate\Support\Str;
 class ImpersonateUiMiddleware
 {
 	/**
+	 * The impersonate UI manager instance.
+	 *
+	 * @var mixed
+	 */
+	protected $uiManager;
+
+	/**
 	 * Handle an incoming request.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
