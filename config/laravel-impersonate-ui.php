@@ -27,6 +27,14 @@ return [
 	*/
 	'users_allowed_to_impersonate' => ['admin@example.com'],
 
+    /**
+    * Users orderBy field
+    *
+    * For those who do not have the "name" field, but another one, you can specify here the field to use
+    *
+    */
+    'users_order_field' => 'name',
+
 	/**
 	* Position of icon.
 	* 
