@@ -6,8 +6,8 @@ Laravel Impersonate UI is a Laravel Package that adds an easy to use UI for sele
 ![Demo](https://raw.githubusercontent.com/hapidjus/laravel-impersonate-ui/master/screenshot.png)
 
 ### Requirements
-- Laravel >= 6.1
-- PHP >= 7.1
+- Laravel >= 7.0
+- PHP >= 7.1 (PHP >= 8.3 for Laravel 13)
 
 
 ### Installation
