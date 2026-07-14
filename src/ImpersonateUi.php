@@ -107,14 +107,14 @@ class ImpersonateUi{
 	static public function getUsers(){
 
 		if(is_array(config('laravel-impersonate-ui.users_only'))){
-			return config('laravel-impersonate-ui.user_model')::whereIn('id', config('laravel-impersonate-ui.users_only'))->orderBy('name')->get();
+			return config('laravel-impersonate-ui.user_model')::whereIn('id', config('laravel-impersonate-ui.users_only'))->orderBy(config('laravel-impersonate-ui.users_order_field'))->get();
 		}
 
 		if(is_array(config('laravel-impersonate-ui.users_exclude'))){
-			return config('laravel-impersonate-ui.user_model')::whereNotIn('id', config('laravel-impersonate-ui.users_exclude'))->orderBy('name')->get();
+			return config('laravel-impersonate-ui.user_model')::whereNotIn('id', config('laravel-impersonate-ui.users_exclude'))->orderBy(config('laravel-impersonate-ui.users_order_field'))->get();
 		}
 
-		return config('laravel-impersonate-ui.user_model')::orderBy('name')->get();
+		return config('laravel-impersonate-ui.user_model')::orderBy(config('laravel-impersonate-ui.users_order_field'))->get();
 
 	}
 

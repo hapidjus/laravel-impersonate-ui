@@ -1,3 +1,6 @@
+@php
+    $order_field = config('laravel-impersonate-ui.users_order_field');
+@endphp
 @canImpersonate
 <div id="impersonate-ui" class="position-{{ config('laravel-impersonate-ui.icon_position') }}">
 	<a id="impersonate-ui-icon" onclick="toggleFull()">
@@ -5,9 +8,9 @@
 	</a>
 	<div id="impersonate-ui-fullcontainer" class="hiddenX">
 		<h3 class="h5">Laravel Impersonate UI</h3>
-		Logged on as: <span id="current-user"><strong>{{ Auth::user()->name }}</strong></span><br>
+		Logged on as: <span id="current-user"><strong>{{ Auth::user()->$order_field }}</strong></span><br>
 		@impersonating
-			Real user: <span id="real-user"><strong>{{ $impersonator->name }}</strong></span>
+			Real user: <span id="real-user"><strong>{{ $impersonator->$order_field }}</strong></span>
 		@endImpersonating
 		<form action="{{ route('impersonate-ui.take') }}" method="POST" class="form">
 			@csrf
@@ -17,9 +20,9 @@
 				<select name="impersonate_id" id="impersonate_id" class="custom-select" {!! !config('laravel-impersonate-ui.show_button') ? ' onchange="javascript:this.form.submit()"' : '' !!}>
 					@foreach($users as $user)
 						@canBeImpersonated($user)
-							<option value="{{ $user->id }}">{{ $user->name }}</option>
+							<option value="{{ $user->id }}">{{ $user->$order_field }}</option>
 						@else
-							<option value="{{ $user->id }}" selected disabled>{{ $user->name }}</option>
+							<option value="{{ $user->id }}" selected disabled>{{ $user->$order_field }}</option>
 						@endCanBeImpersonated
 					@endforeach
 				</select>
